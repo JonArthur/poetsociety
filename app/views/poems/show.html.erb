@@ -1,8 +1,8 @@
 <div class="container">
 	<h2><%= @poem.title %></h2>
-	<h3><%= @poem.author %></h3>
-	<h4><%= @poem.body%></h4>
-	<h4><%= @poem.user_id%></h4>
+	<div class="well"><%= raw @poem.body%></div>
+	
+	<h4><%= @poem.user.first_name%></h4>
 	<%if user_signed_in?%>
 			<% if @poem.user_id == current_user.id %>
 				<%= link_to "Edit", edit_poem_path(@poem)%>

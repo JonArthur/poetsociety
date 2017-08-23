@@ -1,0 +1,7 @@
+<h1></h1>
+<div class="container">
+	<%@user.poems.each do |poem|%>
+	<h3><%= poem.title%></h3>
+	<div class="well"><%= raw poem.body%></div>
+	<% end%>
+</div>

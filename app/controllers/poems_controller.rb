@@ -24,7 +24,7 @@ class PoemsController < ApplicationController
 
 	def create
 		@poem = current_user.poems.build(poem_params)
-		# @poem.author = current_user.id
+		
 		if @poem.save
 			redirect_to root_path
 		else
@@ -37,10 +37,13 @@ class PoemsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def view_poems
+		
+	end
 
 	private
 		def poem_params
-			params.require(:poem).permit(:title,:body,:author)
+			params.require(:poem).permit(:title,:body)
 			
 		end
 
