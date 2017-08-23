@@ -1,0 +1,7 @@
+<div class="container">
+	<h2><%= @poem.title %></h2>
+	<h3><%= @poem.author %></h3>
+	<h4><%= @poem.body%></h4>
+	<%= link_to "Edit", edit_poem_path(@poem)%>
+	<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'are you sure?'}%>
+</div>
