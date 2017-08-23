@@ -19,11 +19,11 @@ class PoemsController < ApplicationController
 	end
 
 	def new
-		@poem = Poem.new
+		@poem = current_user.poems.build
 	end
 
 	def create
-		@poem = Poem.new(poem_params)
+		@poem = current_user.poems.build(poem_params)
 		if @poem.save
 			redirect_to root_path
 		else
