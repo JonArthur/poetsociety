@@ -24,6 +24,7 @@ class PoemsController < ApplicationController
 
 	def create
 		@poem = current_user.poems.build(poem_params)
+		# @poem.author = current_user.id
 		if @poem.save
 			redirect_to root_path
 		else
