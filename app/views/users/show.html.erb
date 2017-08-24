@@ -17,7 +17,11 @@
 				<div class="panel panel-default">
 					<div class="panel-heading"><h3><%= poem.title%></h3></div>
 					<div class="panel-body">
-						<%= raw poem.body%>
+						<%= raw poem.body%><br>
+						<button class="btn btn-primary" type="button">
+  							Comments <span class="badge"><%= poem.comments.count%></span>
+						</button>
+						
 					</div>
 				</div>
 			<% end%>

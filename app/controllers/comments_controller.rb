@@ -4,14 +4,18 @@ class CommentsController < ApplicationController
     @comment = @poem.comments.create(comment_params)
     @comment.user_id = current_user.id
     if @comment.save
-    	redirect_to poem_path(@poem)
+    	redirect_to poem_path(@poem),notice:"Successfully added comment"
     else
-    	redirect_to poem_path(@poem)
+    	redirect_to poem_path(@poem),alert:"Cant add comment"
     end
-
   end
  
-  
+  def destroy
+    @poem = Poem.find(params[:poem_id])
+    @comment = @poem.comments.find(params[:id])
+    @comment.destroy
+    redirect_to poem_path(@poem)
+  end
  
   private
     def comment_params
