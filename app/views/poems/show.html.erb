@@ -3,11 +3,28 @@
 	<div class="well"><%= raw @poem.body%></div>
 	
 	<h4><%= @poem.user.first_name%></h4>
+	<h2>Comments</h2>
+	<% @poem.comments.each do |comment| %>
+
+		<strong>Comment:</strong>
+		<%= comment.body %>
+		<br>
+		<strong>Commenter:</strong>
+		<%= comment.user.first_name %>
+	</p>
+	<% end %>
+
 	<%if user_signed_in?%>
-			<% if @poem.user_id == current_user.id %>
-				<%= link_to "Edit", edit_poem_path(@poem)%>
-				<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'Are you sure?'}%>
-			<%end%>					
+	<h2>Add a comment:</h2>
+	<%= simple_form_for([@poem, @poem.comments.build]) do |f| %>
+		<%= f.input :body,label: "Body"%>
+		<%= f.submit %>
+	<% end %>
+
+	<% if @poem.user_id == current_user.id %>
+		<%= link_to "Edit", edit_poem_path(@poem)%>
+		<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'Are you sure?'}%>
+	<%end%>
 	<%end%>
 	
 </div>
