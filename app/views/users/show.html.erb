@@ -1,7 +1,27 @@
-<h1></h1>
 <div class="container">
-	<%@user.poems.each do |poem|%>
-	<h3><%= poem.title%></h3>
-	<div class="well"><%= raw poem.body%></div>
-	<% end%>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default">
+					<div class="panel-heading">Name</div>
+					<div class="panel-body">
+						<%= @user.first_name%> <%= @user.last_name%> 
+					</div>
+					<div class="panel-heading">Email</div>
+					<div class="panel-body">
+						<%= @user.email%>
+					</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<%@user.poems.each do |poem|%>
+				<div class="panel panel-default">
+					<div class="panel-heading"><h3><%= poem.title%></h3></div>
+					<div class="panel-body">
+						<%= raw poem.body%>
+					</div>
+				</div>
+			<% end%>
+		</div>
+	</div>
+	
 </div>

@@ -6,7 +6,7 @@
 	<%if user_signed_in?%>
 			<% if @poem.user_id == current_user.id %>
 				<%= link_to "Edit", edit_poem_path(@poem)%>
-				<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'are you sure?'}%>
+				<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'Are you sure?'}%>
 			<%end%>					
 	<%end%>
 	
