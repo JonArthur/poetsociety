@@ -1,8 +1,24 @@
 <div class="container">
 	<h2>Welcome to index</h2>
-<% @poems.each do |poem|%>
-	<h3><%= link_to poem.title, poem_path(poem)%></h3>
-<% end %>
-
-<%= link_to "Add Poem", new_poem_path%>
+	
+	<div class="container">
+		<div class="row">
+			<% @poems_limit.each do |poem|%>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title"><%=poem.title%></h3>
+					</div>
+					<div class="panel-body">
+						<%=truncate(poem.body, :length =>100) %>
+					</div>
+				</div>
+				
+				<p><%= link_to "View Poem", poem_path(poem)%></p>
+				
+				
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

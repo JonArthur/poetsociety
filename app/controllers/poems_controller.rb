@@ -2,6 +2,7 @@ class PoemsController < ApplicationController
 	before_action :find_poem, only:[:show,:edit,:update,:destroy]
 	def index	
 		@poems = Poem.all
+		@poems_limit = Poem.limit(3)
 	end
 
 	def show
