@@ -21,6 +21,12 @@
 						<button class="btn btn-primary" type="button">
   							Comments <span class="badge"><%= poem.comments.count%></span>
 						</button>
+						<button class="btn btn-primary" type="button">
+  							Likes <span class="badge"><%= poem.get_upvotes.size%></span>
+						</button>
+						<button class="btn btn-primary" type="button">
+  							Dislikes<span class="badge"><%= poem.get_downvotes.size%></span>
+						</button>
 						
 					</div>
 				</div>

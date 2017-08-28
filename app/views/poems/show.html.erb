@@ -4,10 +4,10 @@
 	
 	<h5>-<%= @poem.user.first_name%></h5>
 	<%= link_to like_poem_path(@poem), method: :put do %>
-  	Upvote
+	<span class="glyphicon glyphicon-thumbs-up"></span>
   	<%= @poem.get_upvotes.size %>
   	<%= link_to dislike_poem_path(@poem), method: :put do %>
-  	Downvote
+  	<span class="glyphicon glyphicon-thumbs-down"></span>
   	<%= @poem.get_downvotes.size %>
 <% end %>
 	<% end %>
