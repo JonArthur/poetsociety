@@ -12,6 +12,10 @@
 <% end %>
 	<% end %>
 	<h2>Comments</h2>
+	<%= simple_form_for([@poem, @poems.comments.build]) do |f| %>
+			<%= f.input :body,label: "Comment"%>
+			<%= f.button :submit%>
+	<% end %>
 	<% @poem.comments.each do |comment| %>
 	
 	<div class="media">
@@ -30,15 +34,12 @@
 	</div>
 	<% end %>
 	<% if user_signed_in? %>
-	<h2>Add a comment:</h2>
-	<%= simple_form_for([@poem, @poem.comments.build]) do |f| %>
-	<%= f.input :body,label: "Body"%>
-	<%= f.button :submit%>
-	<% end %>
-	<% if @poem.user_id == current_user.id %>
-	<%= link_to "Edit", edit_poem_path(@poem)%>
-	<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'Are you sure?'}%>
-	<%end%>
+		<h2>Add a comment:</h2>
+		
+		<% if @poem.user_id == current_user.id %>
+			<%= link_to "Edit", edit_poem_path(@poem)%>
+			<%= link_to "Delete", poem_path(@poem), method: :delete,data:{confirm: 'Are you sure?'}%>
+		<%end%>
 	<%end%>
 	
 </div>

@@ -6,6 +6,7 @@ class PoemsController < ApplicationController
 	end
 
 	def show
+		@poems = Poem.new
 	end
 
 	def edit	

@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @poem = Poem.find(params[:poem_id])
     @comment = @poem.comments.create(comment_params)
-    @comment.user_id = current_user.id
+    @comment.user = current_user
     if @comment.save
     	redirect_to poem_path(@poem),notice:"Successfully added comment"
     else
