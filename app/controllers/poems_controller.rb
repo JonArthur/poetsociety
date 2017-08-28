@@ -37,10 +37,20 @@ class PoemsController < ApplicationController
 		@poem.destroy
 		redirect_to root_path
 	end
+	def upvote 
+  		@poem = Poem.find(params[:id])
+  		@poem.upvote_by current_user
+  		redirect_back fallback_location: poem_path(@poem)
+	end  
 
-	def view_poems
-		
+	def downvote
+  		@poem = Poem.find(params[:id])
+  		@poem.downvote_by current_user
+  		redirect_back fallback_location: poem_path(@poem)
+  		
 	end
+
+
 
 	private
 		def poem_params

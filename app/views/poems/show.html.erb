@@ -3,9 +3,17 @@
 	<div class="well"><%= raw @poem.body%></div>
 	
 	<h5>-<%= @poem.user.first_name%></h5>
+	<%= link_to like_poem_path(@poem), method: :put do %>
+  	Upvote
+  	<%= @poem.get_upvotes.size %>
+  	<%= link_to dislike_poem_path(@poem), method: :put do %>
+  	Downvote
+  	<%= @poem.get_downvotes.size %>
+<% end %>
+	<% end %>
 	<h2>Comments</h2>
 	<% @poem.comments.each do |comment| %>
-
+	
 	<div class="media">
 		<div class="media-body">
 			<h4 class="media-heading"><%= comment.user.first_name%></h4>
