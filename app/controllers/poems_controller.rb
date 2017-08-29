@@ -1,5 +1,6 @@
 class PoemsController < ApplicationController
 	before_action :find_poem, only:[:show,:edit,:update,:destroy]
+	before_action :authenticate_user!, except:[:index,:show]
 	def index	
 		@poems = Poem.all
 		@poems_limit = Poem.limit(3)
@@ -55,7 +56,7 @@ class PoemsController < ApplicationController
 
 	private
 		def poem_params
-			params.require(:poem).permit(:title,:body)
+			params.require(:poem).permit(:title,:body,:category_id)
 			
 		end
 

@@ -10,12 +10,16 @@
 						<h3 class="panel-title"><%=poem.title%></h3>
 					</div>
 					<div class="panel-body">
-						<%=truncate(poem.body, :length =>100) %>
+						<%=simple_format(truncate(poem.body, :length =>100)) %>
 					</div>
 				</div>
 				
 				<p><%= link_to "View Poem", poem_path(poem)%></p>
+				<% @poems.each do |poem| %>
 				
+				<%= poem.title %> <%= link_to "Show", poem_path(poem) %>				
+
+				<% end %>
 				
 			</div>
 			<% end %>

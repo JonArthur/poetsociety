@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @poem = Poem.find(params[:poem_id])
     @comment = @poem.comments.create(comment_params)

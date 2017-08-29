@@ -1,8 +1,9 @@
 <div class="container">
 	<h2><%= @poem.title %></h2>
-	<div class="well"><%= raw @poem.body%></div>
+	<%= @poem.user.first_name%>
+	<div class="well"><%= simple_format(@poem.body)%></div>
 	
-	<h5>-<%= @poem.user.first_name%></h5>
+	
 	<%= link_to like_poem_path(@poem), method: :put do %>
 	<span class="glyphicon glyphicon-thumbs-up"></span>
 	<%= @poem.get_upvotes.size %>
@@ -22,7 +23,9 @@
 		<div class="col-sm-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
+
 					<div class="pull-left"><strong><%= comment.user.first_name%></h4></strong> <span class="text-muted">commented <%= time_ago_in_words(comment.created_at)%> ago </span></div>
+
 					<div class="pull-right">
 						asdasd
 					</div>

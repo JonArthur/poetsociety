@@ -2,7 +2,7 @@
 
 	<%= f.input :title,label: "Poem Title"%>
 	<%= f.input :body,label: "Body"%>
-	
+	<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] },label: "Category" %>
+	<br>
 	<%= f.button :submit%>
 <% end %>
-<h1></h1> 
