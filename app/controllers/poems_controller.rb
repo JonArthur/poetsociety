@@ -1,9 +1,13 @@
 class PoemsController < ApplicationController
 	before_action :find_poem, only:[:show,:edit,:update,:destroy]
 	before_action :authenticate_user!, except:[:index,:show]
-	def index	
-		@poems = Poem.all
-		@poems_limit = Poem.limit(3)
+	def index
+		if params[:category].blank?	
+			@poems = Poem.all
+		else
+			@category_id = Category.find_by(name: params[:category]).id
+			@poems = Poem.where(category_id: @category_id) 
+		end
 	end
 
 	def show

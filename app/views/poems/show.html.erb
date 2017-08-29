@@ -19,7 +19,7 @@
 	<% end %>
 	<br>
 	<div class="row">
-	<% @poem.comments.each do |comment| %>
+	<% @poem.comments.order("created_at DESC").each do |comment| %>
 		<div class="col-sm-8">
 			<div class="panel panel-default">
 				<div class="panel-heading">
