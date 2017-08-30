@@ -5,7 +5,8 @@
 		<div class="row">
 				
 				<% @poems.each do |poem| %>
-				<h3> <%= link_to poem.title, poem_path(poem) %></h3>				
+				<h3> <%= link_to poem.title, poem_path(poem)%> <small>created by <strong><%= poem.user.first_name%></strong> <%= time_ago_in_words(poem.created_at) %> ago</small></h3>
+				<hr/>				
 
 				<% end %>
 			</div>

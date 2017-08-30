@@ -4,9 +4,13 @@ class PoemsController < ApplicationController
 	def index
 		if params[:category].blank?	
 			@poems = Poem.all
+		
 		else
 			@category_id = Category.find_by(name: params[:category]).id
 			@poems = Poem.where(category_id: @category_id) 
+		end
+		if params[:search]
+			@poems = Poem.where('title LIKE ?', "%#{params[:search]}%")
 		end
 	end
 
@@ -60,7 +64,7 @@ class PoemsController < ApplicationController
 
 	private
 		def poem_params
-			params.require(:poem).permit(:title,:body,:category_id)
+			params.require(:poem).permit(:title,:body,:category_id,:search)
 			
 		end
 
