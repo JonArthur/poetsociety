@@ -1,0 +1,13 @@
+<div class="row">
+	<div class="col-md-4"></div>
+	<div class="col-md-4">
+		<%= simple_form_for @search do |f| %>
+		<%= f.input :tittle, label: "title" %>
+		<%= f.input :body, label: "body" %>
+		<%= f.select :category_id, Category.all.collect {|c| [ c.name, c.id ] },label: "Category" %>
+		<br>
+		<%= f.button :submit%>
+		<% end %>
+	</div>
+	<div class="col-md-4"></div>
+</div>

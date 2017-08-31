@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'users/view'
 
   devise_for :users
-
+  resources :searches
   resources :poems do
   	resources :comments
   	member do
