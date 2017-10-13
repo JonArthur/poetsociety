@@ -45,9 +45,6 @@ ActiveRecord::Schema.define(version: 20170831052115) do
     t.index ["category_id"], name: "index_searches_on_category_id"
   end
 
-# Could not dump table "sqlite_stat1" because of following StandardError
-#   Unknown type '' for column 'tbl'
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
